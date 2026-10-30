@@ -49,6 +49,28 @@
 
 > 创建技能skill：提交到github，将本项目提交commit并push到`https://github.com/Lya0102/YangQiXuan109.git`，使用已设置公钥。
 
+## 2026-10-30 15:23:48
+
+- **模型**：GLM-5.3-Flash
+- **提示词内容**：
+
+> 把C:\Users\Lenovo\Desktop\网页设计\高级网页设计\webprojectyangqixuan里的index.html强覆盖在外围的index.html里
+> （补充说明目标：C:\Users\Lenovo\Desktop\网页设计的index.html）
+
+## 2026-10-30 15:27:05
+
+- **模型**：GLM-5.3-Flash
+- **提示词内容**：
+
+> 强覆盖在`https://lya0102.github.io/YangQiXuan109/`里（把课堂实践目录页部署为 GitHub Pages 站点首页）
+
+## 2026-10-30 15:22:05
+
+- **模型**：GLM-5.3-Flash
+- **提示词内容**：
+
+> 把C:\Users\Lenovo\Desktop\网页设计\高级网页设计\webprojectyangqixuan里的index.html强覆盖在外围的index.html里
+
 ## 2026-10-30 14:52:10
 
 - **模型**：GLM-5.3-Flash
