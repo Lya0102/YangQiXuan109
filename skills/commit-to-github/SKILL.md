@@ -34,7 +34,16 @@ description: 将本项目（高级网页设计课程项目）提交 commit 并 p
 
 ## 注意事项
 
+- 本机网络封锁了 22 端口，SSH 必须走 443：已在 `~/.ssh/config` 中配置
+  `Host github.com → HostName ssh.github.com / Port 443 / User git`，
+  直接 `git push` 即可；若提示连不上，改用一次性命令：
+  ```
+  $env:GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new -o HostName=ssh.github.com -o Port=443"; git push
+  ```
 - 永远不要 `push --force`；推送被拒（non-fast-forward）时先 `git pull --rebase origin main` 再重试。
 - 不要提交大体积无关文件（缓存、临时目录）；可用 `.gitignore` 排除 `.trae/`、`Thumbs.db` 等。
+- `webprojectyangqixuan` 原本内嵌独立 git 仓库，其 `.git` 已重命名为 `.git.bak`（历史保留），
+  才能作为普通文件夹被主仓库跟踪；不要把 `.git.bak` 改回 `.git`，否则推送会变成空目录。
 - 提交前确认 git 身份存在（本机已配置：杨祺轩 3519784361@qq.com），不要修改全局 git 配置。
-- 若 SSH 认证失败，提示用户检查 `ssh -T git@github.com` 的输出，不要改用 HTTPS 凭据方式。
+- 若 SSH 认证失败，提示用户检查 `ssh -T git@github.com` 的输出（正常应返回 Hi Lya0102!），
+  不要改用 HTTPS 凭据方式。
