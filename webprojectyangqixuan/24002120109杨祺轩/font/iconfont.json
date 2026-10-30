@@ -1,0 +1,37 @@
+{
+  "id": "5231893",
+  "name": "yangqixuan",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "48091834",
+      "name": "核酸试剂配置",
+      "font_class": "hesuanshijipeizhi",
+      "unicode": "e74d",
+      "unicode_decimal": 59213
+    },
+    {
+      "icon_id": "47837674",
+      "name": "爱心",
+      "font_class": "aixin",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "47837691",
+      "name": "加号",
+      "font_class": "jiahao",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    },
+    {
+      "icon_id": "48091186",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e745",
+      "unicode_decimal": 59205
+    }
+  ]
+}

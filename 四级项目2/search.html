@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - 网易云音乐（图像解决方案）</title>
+    <!--
+      高级网页设计 I · 图像解决方案 · 四级项目2
+      选题：网易云音乐 ｜ 24002120109 杨祺轩
+      下导航图标：iconfont「SVG symbol 精灵」方式
+    -->
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:#f4f4f4;padding-bottom:70px;font-family:"Microsoft YaHei",sans-serif;}
+        .yqx_search-box{padding:15px;}
+        .yqx_search-box input{width:100%;padding:10px 14px;border-radius:20px;border:none;background:#fff;font-size:14px;outline:none;}
+        .yqx_hot-title{padding:0 15px 10px;font-size:15px;font-weight:bold;}
+        .yqx_hot-wrap{padding:0 15px;display:flex;flex-wrap:wrap;gap:8px;}
+        .yqx_hot-tag{padding:6px 12px;background:#fff;border-radius:16px;font-size:13px;color:#444;}
+    </style>
+</head>
+<body>
+
+    <!-- iconfont SVG symbol 精灵（与首页共用同一份定义） -->
+    <svg class="yqx_sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="yqx_icon_find" viewBox="0 0 1024 1024">
+            <circle cx="512" cy="512" r="430" fill="none" stroke="currentColor" stroke-width="72"/>
+            <path d="M745 279 L590 590 L434 434 Z" fill="currentColor"/>
+            <path d="M279 745 L590 590 L434 434 Z" fill="none" stroke="currentColor" stroke-width="56" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="yqx_icon_rank" viewBox="0 0 1024 1024">
+            <path d="M462 462 Q462 150 306 150 Q150 150 150 306 Q150 462 462 462 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+            <path d="M562 462 Q562 150 718 150 Q874 150 874 306 Q874 462 562 462 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+            <path d="M462 562 Q462 874 306 874 Q150 874 150 718 Q150 562 462 562 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+            <path d="M562 562 Q562 874 718 874 Q874 874 874 718 Q874 562 562 562 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="yqx_icon_search" viewBox="0 0 1024 1024">
+            <circle cx="440" cy="440" r="316" fill="none" stroke="currentColor" stroke-width="72"/>
+            <path d="M672 672 L894 894" fill="none" stroke="currentColor" stroke-width="72" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="yqx_icon_user" viewBox="0 0 1024 1024">
+            <circle cx="512" cy="300" r="176" fill="none" stroke="currentColor" stroke-width="64"/>
+            <path d="M140 950 L140 800 Q140 560 380 560 L644 560 Q884 560 884 800 L884 950 Z" fill="none" stroke="currentColor" stroke-width="64" stroke-linejoin="round"/>
+        </symbol>
+    </svg>
+
+    <div class="yqx_search-box">
+        <input type="text" placeholder="搜索歌曲、歌手">
+    </div>
+    <div class="yqx_hot-title">热门搜索</div>
+    <div class="yqx_hot-wrap">
+        <span class="yqx_hot-tag">七里香</span>
+        <span class="yqx_hot-tag">小幸运</span>
+        <span class="yqx_hot-tag">孤勇者</span>
+    </div>
+
+    <!-- 底部下导航：iconfont 图标代替 PNG 位图 -->
+    <nav class="yqx_tab">
+        <a href="index.html" class="yqx_item">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_find"></use></svg>
+            <span>发现</span>
+        </a>
+        <a href="rank.html" class="yqx_item">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_rank"></use></svg>
+            <span>排行</span>
+        </a>
+        <a href="search.html" class="yqx_item yqx_active">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_search"></use></svg>
+            <span>搜索</span>
+        </a>
+        <a href="my.html" class="yqx_item">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_user"></use></svg>
+            <span>我的</span>
+        </a>
+    </nav>
+</body>
+</html>

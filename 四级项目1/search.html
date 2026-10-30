@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:#f4f4f4;padding-bottom:70px;}
+        .search-box{padding:15px;}
+        .search-box input{width:100%;padding:10px 14px;border-radius:20px;border:none;background:#fff;font-size:14px;}
+        .hot-title{padding:0 15px 10px;font-size:15px;font-weight:bold;}
+        .hot-wrap{padding:0 15px;display:flex;flex-wrap:wrap;gap:8px;}
+        .hot-tag{padding:6px 12px;background:#fff;border-radius:16px;font-size:13px;color:#444;}
+        /* Tab */
+        .tab{position:fixed;bottom:0;left:0;width:100%;height:62px;background:#fff;display:flex;border-top:1px solid #ddd;}
+        .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;color:#777;text-decoration:none;}
+        .tab-item img{width:24px;height:24px;margin-bottom:4px;}
+    </style>
+</head>
+<body>
+    <div class="search-box">
+        <input type="text" placeholder="搜索歌曲、歌手">
+    </div>
+    <div class="hot-title">热门搜索</div>
+    <div class="hot-wrap">
+        <span class="hot-tag">七里香</span>
+        <span class="hot-tag">小幸运</span>
+        <span class="hot-tag">孤勇者</span>
+    </div>
+
+    <div class="tab">
+        <a href="index.html" class="tab-item">
+            <img src="find.png">
+            <span>发现</span>
+        </a>
+        <a href="rank.html" class="tab-item">
+            <img src="rank.png">
+            <span>排行</span>
+        </a>
+        <a href="search.html" class="tab-item active">
+            <img src="search.png">
+            <span>搜索</span>
+        </a>
+        <a href="my.html" class="tab-item">
+            <img src="user.png">
+            <span>我的</span>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字范 · Font Awesome 字体图标</title>
+<!-- 本地 CDN：Font Awesome 6.7.2（字体图标方式，本页所有图标均以字体渲染） -->
+<link rel="stylesheet" href="cdn/css/all.min.css">
+<style>
+:root{
+  --yqx-paper:#FAF8F2;
+  --yqx-ink:#1A1510;
+  --yqx-red:#B3271E;
+  --yqx-gray:#6E6659;
+  --yqx-line:#E3DCCB;
+  --yqx-size:40px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--yqx-paper);
+  color:var(--yqx-ink);
+  font-family:"Songti SC","SimSun","NSimSun",serif;
+  line-height:1.9;
+}
+/* ── 返回首页入口（固定，安静） ─────────────────────── */
+.yqx_home{
+  position:fixed;top:18px;left:22px;z-index:9;
+  color:var(--yqx-gray);text-decoration:none;font-size:14px;
+  letter-spacing:.1em;border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+.yqx_home:hover{color:var(--yqx-red);border-bottom-color:var(--yqx-red)}
+.yqx_home:focus-visible{outline:2px solid var(--yqx-red);outline-offset:3px}
+
+/* ── 右侧竖排题签 + 朱印 ─────────────────────────── */
+.yqx_side{
+  position:fixed;top:0;right:0;bottom:0;width:92px;z-index:5;
+  border-left:1px solid var(--yqx-ink);background:var(--yqx-paper);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:space-between;padding:36px 0;
+}
+.yqx_sideTitle{
+  writing-mode:vertical-rl;
+  font-family:"Kaiti SC","KaiTi","STKaiti",serif;
+  font-size:28px;font-weight:700;letter-spacing:.4em;
+}
+.yqx_sideTitle em{
+  font-style:normal;font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;letter-spacing:.34em;color:var(--yqx-gray);
+  display:block;margin-top:26px;
+}
+.yqx_seal{
+  width:54px;height:54px;background:var(--yqx-red);color:var(--yqx-paper);
+  font-family:"Kaiti SC","KaiTi",serif;font-size:19px;line-height:1.25;
+  writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;
+  border-radius:4px;
+}
+
+/* ── 主区 ─────────────────────────────────────── */
+.yqx_main{margin-right:92px;padding:0 6vw}
+.yqx_hero{
+  display:flex;gap:6vw;align-items:flex-start;
+  padding:13vh 0 8vh;max-width:1020px;
+}
+.yqx_glyphBig i{display:block;font-size:clamp(150px,20vw,250px);line-height:1}
+.yqx_glyphBig figcaption{
+  margin-top:18px;font-size:13px;color:var(--yqx-gray);
+  font-family:Consolas,monospace;letter-spacing:.06em;
+}
+.yqx_heroText{max-width:34em;padding-top:1.5vh}
+.yqx_title{
+  font-family:"Kaiti SC","KaiTi","STKaiti",serif;
+  font-size:clamp(44px,5.5vw,62px);letter-spacing:.2em;line-height:1.2;
+}
+.yqx_title small{
+  display:block;font-family:Georgia,serif;font-size:15px;
+  letter-spacing:.22em;color:var(--yqx-gray);margin-top:6px;
+}
+.yqx_lead{margin-top:26px;font-size:16.5px;color:#33302a}
+.yqx_lead b{color:var(--yqx-red);font-weight:700}
+.yqx_code{
+  margin-top:22px;padding:14px 18px;background:#F1EDE2;
+  border-left:3px solid var(--yqx-ink);
+  font-family:Consolas,"Courier New",monospace;font-size:13.5px;line-height:2;
+  overflow-x:auto;white-space:pre;
+}
+.yqx_code .yqx_tag{color:var(--yqx-red)}
+
+/* ── 字号演示：字体图标随 font-size 缩放 ───────────── */
+.yqx_demo{
+  display:flex;align-items:center;flex-wrap:wrap;gap:26px;
+  border-top:1px solid var(--yqx-ink);border-bottom:1px solid var(--yqx-ink);
+  padding:22px 0;max-width:1020px;
+}
+.yqx_demoGlyphs{display:flex;align-items:center;gap:26px;font-size:var(--yqx-size)}
+.yqx_demoGlyphs i{line-height:1;transition:font-size .1s}
+.yqx_demoLabel{font-size:13px;color:var(--yqx-gray)}
+.yqx_readout{
+  font-family:Consolas,monospace;font-size:14px;color:var(--yqx-red);min-width:58px;
+}
+.yqx_slider{accent-color:var(--yqx-red);width:230px;cursor:pointer}
+.yqx_slider:focus-visible{outline:2px solid var(--yqx-red);outline-offset:3px}
+
+/* ── 活字盘 ───────────────────────────────────── */
+.yqx_h2{
+  font-family:"Kaiti SC","KaiTi",serif;font-size:19px;font-weight:700;
+  letter-spacing:.42em;margin:9vh 0 4px;
+}
+.yqx_h2Sub{font-size:13px;color:var(--yqx-gray);margin-bottom:22px}
+.yqx_tray{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(106px,1fr));
+  border-top:1px solid var(--yqx-ink);border-left:1px solid var(--yqx-ink);
+  max-width:1020px;
+}
+.yqx_cell{
+  border-right:1px solid var(--yqx-line);border-bottom:1px solid var(--yqx-line);
+  padding:24px 8px 14px;text-align:center;
+  transition:background .25s,color .25s;
+}
+.yqx_cell i{font-size:var(--yqx-size);line-height:1}
+.yqx_cellName{
+  font-family:"Kaiti SC","KaiTi",serif;font-size:14px;margin-top:13px;letter-spacing:.06em;
+}
+.yqx_cellCode{
+  font-family:Consolas,monospace;font-size:11px;color:var(--yqx-gray);margin-top:2px;
+}
+.yqx_cell:hover{background:var(--yqx-ink);color:var(--yqx-paper)}
+.yqx_cell:hover .yqx_cellCode{color:#B7AC99}
+.yqx_cell:focus-visible{outline:2px solid var(--yqx-red);outline-offset:-2px}
+
+/* ── 商号（品牌图标） ────────────────────────────── */
+.yqx_brands{
+  display:flex;flex-wrap:wrap;align-items:center;gap:38px;
+  padding:30px 4px;border-bottom:1px solid var(--yqx-ink);max-width:1020px;
+}
+.yqx_brands i{font-size:36px;line-height:1;transition:color .2s}
+.yqx_brands a{color:var(--yqx-ink)}
+.yqx_brands a:hover{color:var(--yqx-red)}
+.yqx_brands a:focus-visible{outline:2px solid var(--yqx-red);outline-offset:4px}
+.yqx_brandName{font-size:12px;color:var(--yqx-gray);font-family:Consolas,monospace}
+
+/* ── 刻工注 ───────────────────────────────────── */
+.yqx_notes{display:flex;gap:7vw;flex-wrap:wrap;margin:9vh 0 4vh;max-width:1020px}
+.yqx_note{max-width:26em}
+.yqx_note h3{
+  font-family:"Kaiti SC","KaiTi",serif;font-size:17px;
+  letter-spacing:.2em;margin-bottom:10px;
+}
+.yqx_note h3::before{
+  content:"";display:inline-block;width:10px;height:10px;background:var(--yqx-red);
+  margin-right:12px;transform:translateY(-1px) rotate(45deg);
+}
+.yqx_note p{font-size:15px;color:#3d3931}
+
+/* ── 页脚 ─────────────────────────────────────── */
+.yqx_foot{
+  border-top:1px solid var(--yqx-ink);margin-top:10vh;
+  padding:24px 0 36px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;font-size:13px;color:var(--yqx-gray);
+}
+.yqx_foot a{color:var(--yqx-gray)}
+.yqx_foot a:hover{color:var(--yqx-red)}
+
+@media (max-width:760px){
+  .yqx_side{
+    position:static;width:auto;flex-direction:row;height:auto;
+    border-left:0;border-bottom:1px solid var(--yqx-ink);padding:16px 20px;gap:18px;
+  }
+  .yqx_sideTitle{writing-mode:horizontal-tb;font-size:20px}
+  .yqx_sideTitle em{display:inline;margin:0 0 0 12px}
+  .yqx_seal{width:40px;height:40px;font-size:14px;writing-mode:horizontal-tb}
+  .yqx_main{margin-right:0;padding:0 5vw}
+  .yqx_hero{flex-direction:column;gap:34px;padding-top:8vh}
+  .yqx_home{position:static;display:inline-block;margin:16px 20px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<a class="yqx_home" href="index.html">← 返回首页</a>
+
+<aside class="yqx_side">
+  <div class="yqx_sideTitle">字范<em>FONT AWESOME</em></div>
+  <div class="yqx_seal" aria-hidden="true">祺轩</div>
+</aside>
+
+<main class="yqx_main">
+
+  <section class="yqx_hero">
+    <figure class="yqx_glyphBig">
+      <i class="fa-solid fa-yin-yang" aria-hidden="true"></i>
+      <figcaption>fa-yin-yang · \f6ad · solid</figcaption>
+    </figure>
+    <div class="yqx_heroText">
+      <h1 class="yqx_title">字范<small>ICON AS TYPE</small></h1>
+      <p class="yqx_lead">
+        图标即活字。Font Awesome 把两千多个图形铸进一款字体——
+        用一个类名取字，用 font-size 定大小，用 color 施墨，
+        与文字同排同行，随文本缩放，<b>无需任何额外请求</b>。
+      </p>
+      <div class="yqx_code">&lt;i class=<span class="yqx_tag">"fa-solid fa-house"</span>&gt;&lt;/i&gt;
+
+<span class="yqx_tag">/* 或以伪元素取字 */</span>
+content: "\f015";
+font-family: "Font Awesome 6 Free"; font-weight: 900;</div>
+    </div>
+  </section>
+
+  <section class="yqx_demo">
+    <span class="yqx_demoLabel">拖动滑杆——图标如文字般随字号缩放</span>
+    <input class="yqx_slider" id="yqx_sizeSlider" type="range" min="16" max="120" value="40" aria-label="调整图标字号">
+    <output class="yqx_readout" id="yqx_sizeVal" for="yqx_sizeSlider">40 px</output>
+    <div class="yqx_demoGlyphs" aria-hidden="true">
+      <i class="fa-solid fa-house"></i>
+      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-bolt"></i>
+    </div>
+  </section>
+
+  <h2 class="yqx_h2">活字盘</h2>
+  <p class="yqx_h2Sub">实底（solid）二十字，字旁注其码位</p>
+  <div class="yqx_tray">
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-house" aria-hidden="true"></i><div class="yqx_cellName">屋舍</div><div class="yqx_cellCode">f015</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-heart" aria-hidden="true"></i><div class="yqx_cellName">心</div><div class="yqx_cellCode">f004</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-star" aria-hidden="true"></i><div class="yqx_cellName">星</div><div class="yqx_cellCode">f005</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-gear" aria-hidden="true"></i><div class="yqx_cellName">齿轮</div><div class="yqx_cellCode">f013</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-camera" aria-hidden="true"></i><div class="yqx_cellName">镜箱</div><div class="yqx_cellCode">f030</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-music" aria-hidden="true"></i><div class="yqx_cellName">乐</div><div class="yqx_cellCode">f001</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-envelope" aria-hidden="true"></i><div class="yqx_cellName">信函</div><div class="yqx_cellCode">f0e0</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-download" aria-hidden="true"></i><div class="yqx_cellName">下载</div><div class="yqx_cellCode">f019</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-cloud" aria-hidden="true"></i><div class="yqx_cellName">云</div><div class="yqx_cellCode">f0c2</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-wifi" aria-hidden="true"></i><div class="yqx_cellName">无线</div><div class="yqx_cellCode">f1eb</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-bolt" aria-hidden="true"></i><div class="yqx_cellName">电光</div><div class="yqx_cellCode">f0e7</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-sun" aria-hidden="true"></i><div class="yqx_cellName">日</div><div class="yqx_cellCode">f185</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-moon" aria-hidden="true"></i><div class="yqx_cellName">月</div><div class="yqx_cellCode">f186</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-fire" aria-hidden="true"></i><div class="yqx_cellName">火</div><div class="yqx_cellCode">f06d</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-anchor" aria-hidden="true"></i><div class="yqx_cellName">锚</div><div class="yqx_cellCode">f13d</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-feather" aria-hidden="true"></i><div class="yqx_cellName">翎</div><div class="yqx_cellCode">f52b</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-font" aria-hidden="true"></i><div class="yqx_cellName">字</div><div class="yqx_cellCode">f031</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-stamp" aria-hidden="true"></i><div class="yqx_cellName">印</div><div class="yqx_cellCode">f5bf</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i><div class="yqx_cellName">笔尖</div><div class="yqx_cellCode">f5ad</div></div>
+    <div class="yqx_cell" tabindex="0"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div class="yqx_cellName">方位</div><div class="yqx_cellCode">f3c5</div></div>
+  </div>
+
+  <h2 class="yqx_h2">商号</h2>
+  <p class="yqx_h2Sub">品牌图标（brands），另有专属一款字重</p>
+  <div class="yqx_brands">
+    <a href="https://github.com" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+    <a href="https://weibo.com" target="_blank" rel="noopener" title="微博"><i class="fa-brands fa-weibo" aria-hidden="true"></i></a>
+    <a href="https://weixin.qq.com" target="_blank" rel="noopener" title="微信"><i class="fa-brands fa-weixin" aria-hidden="true"></i></a>
+    <a href="https://qq.com" target="_blank" rel="noopener" title="QQ"><i class="fa-brands fa-qq" aria-hidden="true"></i></a>
+    <a href="https://www.zhihu.com" target="_blank" rel="noopener" title="知乎"><i class="fa-brands fa-zhihu" aria-hidden="true"></i></a>
+  </div>
+
+  <section class="yqx_notes">
+    <div class="yqx_note">
+      <h3>何以似字</h3>
+      <p>字体图标本就是文字：它继承行高、随对齐排布、由 color 一笔施墨。一段 CSS 便可让全站图标统一换色、统一定级，加载时与正文一同缓存。</p>
+    </div>
+    <div class="yqx_note">
+      <h3>所限之处</h3>
+      <p>既是单色字，便画不了多色，也变不了线条粗细——想描边、想渐变、想部分填色，字体就交棒给 SVG 了。这正是下一页「图样」的故事。</p>
+    </div>
+  </section>
+
+  <footer class="yqx_foot">
+    <span>高级网页设计 · 字体图标 specimen · 杨祺轩 24002120109</span>
+    <a href="index.html">返回首页</a>
+  </footer>
+
+</main>
+
+<script>
+var yqx_slider = document.getElementById('yqx_sizeSlider');
+var yqx_readout = document.getElementById('yqx_sizeVal');
+function yqx_applySize() {
+  document.documentElement.style.setProperty('--yqx-size', yqx_slider.value + 'px');
+  yqx_readout.textContent = yqx_slider.value + ' px';
+}
+yqx_slider.addEventListener('input', yqx_applySize);
+yqx_applySize();
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* ==========================================================
+   高级网页设计 I · 图像解决方案（四级项目2）
+   项目选题：网易云音乐
+   作者：24002120109 杨祺轩
+   ----------------------------------------------------------
+   图像解决方案核心：下导航图标不再使用 PNG 位图（四级项目1
+   中的 find/rank/search/user.png），改用 iconfont 图标的
+   「SVG symbol 精灵」方式实现 —— 一份代码即可缩放、变色。
+   类名前缀 yqx_ 为姓名缩写（杨祺轩），全部使用 class 选择器，
+   不使用 id 选择器（symbol 上的 id 仅供 <use> 引用，非 CSS）。
+   ========================================================== */
+
+/* 精灵容器本身不可见，仅作为图标定义源 */
+.yqx_sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* iconfont 图标通用类：大小随 font-size，颜色随 currentColor */
+.yqx_icon {
+  width: 1em;
+  height: 1em;
+  font-size: 24px;          /* 与原图 24px 保持一致 */
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+/* ── 底部下导航（tabbar）──────────────────────────── */
+.yqx_tab {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 62px;
+  background: #fff;
+  display: flex;
+  border-top: 1px solid #ddd;
+  z-index: 99;
+}
+.yqx_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #777;
+  text-decoration: none;
+  transition: color .2s;
+}
+.yqx_item .yqx_icon {
+  margin-bottom: 4px;
+}
+.yqx_item:hover {
+  color: #555;
+}
+/* 当前页高亮：网易云音乐品牌红 */
+.yqx_active {
+  color: #ec4141;
+}

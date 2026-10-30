@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发现音乐 - 网易云音乐（图像解决方案）</title>
+    <!--
+      高级网页设计 I · 图像解决方案 · 四级项目2
+      选题：网易云音乐 ｜ 24002120109 杨祺轩
+      下导航图标：iconfont「SVG symbol 精灵」方式，
+      对照四级项目1下导航原图（find/rank/search/user.png）
+    -->
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:#f4f4f4;padding-bottom:70px;font-family:"Microsoft YaHei",sans-serif;}
+        /* 元素2：Banner轮播 */
+        .yqx_banner{width:100%;height:180px;position:relative;overflow:hidden;}
+        .yqx_banner img{width:100%;height:100%;object-fit:cover;}
+        .yqx_dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
+        .yqx_dot{width:8px;height:8px;border-radius:50%;background:#fff;opacity:0.5;}
+        .yqx_dot.yqx_active{opacity:1;}
+        /* 元素1：歌单卡片 */
+        .yqx_section-title{padding:15px;font-size:16px;font-weight:bold;color:#222;}
+        .yqx_list{display:flex;flex-wrap:wrap;padding:0 10px;gap:10px;}
+        .yqx_card{width:calc(50% - 10px);background:#fff;border-radius:10px;overflow:hidden;}
+        .yqx_card img{width:100%;height:140px;object-fit:cover;}
+        .yqx_card-desc{padding:8px;font-size:13px;color:#333;line-height:1.4;}
+    </style>
+</head>
+<body>
+
+    <!-- iconfont SVG symbol 精灵：四个下导航图标（一次定义，全站可用） -->
+    <svg class="yqx_sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <!-- 发现：罗盘 -->
+        <symbol id="yqx_icon_find" viewBox="0 0 1024 1024">
+            <circle cx="512" cy="512" r="430" fill="none" stroke="currentColor" stroke-width="72"/>
+            <path d="M745 279 L590 590 L434 434 Z" fill="currentColor"/>
+            <path d="M279 745 L590 590 L434 434 Z" fill="none" stroke="currentColor" stroke-width="56" stroke-linejoin="round"/>
+        </symbol>
+        <!-- 排行：四瓣花 -->
+        <symbol id="yqx_icon_rank" viewBox="0 0 1024 1024">
+            <path d="M462 462 Q462 150 306 150 Q150 150 150 306 Q150 462 462 462 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+            <path d="M562 462 Q562 150 718 150 Q874 150 874 306 Q874 462 562 462 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+            <path d="M462 562 Q462 874 306 874 Q150 874 150 718 Q150 562 462 562 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+            <path d="M562 562 Q562 874 718 874 Q874 874 874 718 Q874 562 562 562 Z" fill="none" stroke="currentColor" stroke-width="72" stroke-linejoin="round"/>
+        </symbol>
+        <!-- 搜索：放大镜 -->
+        <symbol id="yqx_icon_search" viewBox="0 0 1024 1024">
+            <circle cx="440" cy="440" r="316" fill="none" stroke="currentColor" stroke-width="72"/>
+            <path d="M672 672 L894 894" fill="none" stroke="currentColor" stroke-width="72" stroke-linecap="round"/>
+        </symbol>
+        <!-- 我的：人形 -->
+        <symbol id="yqx_icon_user" viewBox="0 0 1024 1024">
+            <circle cx="512" cy="300" r="176" fill="none" stroke="currentColor" stroke-width="64"/>
+            <path d="M140 950 L140 800 Q140 560 380 560 L644 560 Q884 560 884 800 L884 950 Z" fill="none" stroke="currentColor" stroke-width="64" stroke-linejoin="round"/>
+        </symbol>
+    </svg>
+
+    <!-- Banner -->
+    <div class="yqx_banner">
+        <img src="img/banner.png" alt="banner">
+        <div class="yqx_dots">
+            <span class="yqx_dot yqx_active"></span>
+            <span class="yqx_dot"></span>
+            <span class="yqx_dot"></span>
+        </div>
+    </div>
+
+    <div class="yqx_section-title">推荐歌单</div>
+    <div class="yqx_list">
+        <div class="yqx_card">
+            <img src="img/song1.jpg" alt="歌单封面1">
+            <div class="yqx_card-desc">治愈轻音乐｜睡前必听</div>
+        </div>
+        <div class="yqx_card">
+            <img src="img/song2.jpg" alt="歌单封面2">
+            <div class="yqx_card-desc">2025热门华语歌曲合集</div>
+        </div>
+    </div>
+
+    <!-- 底部下导航：iconfont 图标代替 PNG 位图 -->
+    <nav class="yqx_tab">
+        <a href="index.html" class="yqx_item yqx_active">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_find"></use></svg>
+            <span>发现</span>
+        </a>
+        <a href="rank.html" class="yqx_item">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_rank"></use></svg>
+            <span>排行</span>
+        </a>
+        <a href="search.html" class="yqx_item">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_search"></use></svg>
+            <span>搜索</span>
+        </a>
+        <a href="my.html" class="yqx_item">
+            <svg class="yqx_icon" aria-hidden="true"><use href="#yqx_icon_user"></use></svg>
+            <span>我的</span>
+        </a>
+    </nav>
+</body>
+</html>

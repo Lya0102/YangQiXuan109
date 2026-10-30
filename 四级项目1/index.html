@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发现音乐</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:#f4f4f4;padding-bottom:70px;}
+        /* 元素2：Banner轮播 */
+        .banner{width:100%;height:180px;position:relative;overflow:hidden;}
+        .banner img{width:100%;height:100%;object-fit:cover;}
+        .dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
+        .dot{width:8px;height:8px;border-radius:50%;background:#fff;opacity:0.5;}
+        .dot.active{opacity:1;}
+        /* 元素1：歌单卡片 */
+        .title-text{padding:15px;font-size:16px;font-weight:bold;color:#222;}
+        .list-wrap{display:flex;flex-wrap:wrap;padding:0 10px;gap:10px;}
+        .song-card{width:calc(50% - 10px);background:#fff;border-radius:10px;overflow:hidden;}
+        .song-card img{width:100%;height:140px;object-fit:cover;}
+        .card-desc{padding:8px;font-size:13px;color:#333;line-height:1.4;}
+        /* 元素3 底部Tab导航 */
+        .tab{position:fixed;bottom:0;left:0;width:100%;height:62px;background:#fff;display:flex;border-top:1px solid #ddd;}
+        .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;color:#777;text-decoration:none;}
+        .tab-item.active{color:#ec4141;}
+        .tab-item img{width:24px;height:24px;margin-bottom:4px;}
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        <img src="banner.png" alt="banner">
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <div class="title-text">推荐歌单</div>
+    <div class="list-wrap">
+        <div class="song-card">
+            <img src="song1.jpg">
+            <div class="card-desc">治愈轻音乐｜睡前必听</div>
+        </div>
+        <div class="song-card">
+            <img src="song2.jpg">
+            <div class="card-desc">2025热门华语歌曲合集</div>
+        </div>
+    </div>
+
+    <!-- 底部Tab，跳转4页面 -->
+    <div class="tab">
+        <a href="index.html" class="tab-item active">
+            <img src="find.png">
+            <span>发现</span>
+        </a>
+        <a href="rank.html" class="tab-item">
+            <img src="rank.png">
+            <span>排行</span>
+        </a>
+        <a href="search.html" class="tab-item">
+            <img src="search.png">
+            <span>搜索</span>
+        </a>
+        <a href="my.html" class="tab-item">
+            <img src="user.png">
+            <span>我的</span>
+        </a>
+    </div>
+</body>
+</html>
