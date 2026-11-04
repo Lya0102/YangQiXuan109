@@ -1,0 +1,132 @@
+/*
+  作者：杨祺轩
+  建立时间：2026-11-04 14:06:07
+  使用大模型：GLM-5.3-Flash
+  功能名称：音乐手机频道选项卡列表样式（设计稿一比一还原）
+*/
+
+/* 页面基础 */
+body {
+    margin: 40px 0;
+    background: #ffffff;
+    font: 12px/1.5 SimSun, "宋体", serif;
+}
+
+/* 模块整体（386px，与设计稿一致） */
+.yqx_module {
+    width: 386px;
+    margin: 0 auto;
+}
+
+/* 表头：bg20.gif 为 1x24 横向平铺的渐变条，还原表头底色 */
+.yqx_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 26px;
+    padding-left: 10px;
+    background: url(../img/bg20.gif) repeat-x 0 0;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+/* 频道标题：深灰加粗 */
+.yqx_title {
+    margin: 0;
+    font: bold 15px/26px "Microsoft YaHei", "微软雅黑", sans-serif;
+    color: #333333;
+}
+
+/* 选项卡按钮条：贴在表头底边线上 */
+.yqx_tab_bar {
+    display: flex;
+    gap: 2px;
+}
+
+.yqx_tab_item {
+    width: 45px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid #cfcfcf;
+    border-bottom: none;
+    background: url(../img/bg22.gif) repeat-x 0 0;
+    color: #333333;
+    font: 12px/20px SimSun, "宋体", serif;
+    cursor: pointer;
+    margin-bottom: -1px;
+    position: relative;
+}
+
+/* 激活选项卡：白底蓝字，压住表头底边线与列表相连 */
+.yqx_tab_item.yqx_active {
+    background: #ffffff url(../img/bg21.gif) repeat-x 0 0;
+    color: #0c74b4;
+    font-weight: bold;
+    border-bottom: 1px solid #ffffff;
+    z-index: 2;
+}
+
+/* 列表面板：白底，左右下三边边框 */
+.yqx_tab_panel {
+    display: none;
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    border-top: none;
+    padding: 2px 9px 4px;
+}
+
+.yqx_tab_panel.yqx_show {
+    display: block;
+}
+
+/* 新闻列表：红色方块项目符号 + 蓝色标题 + 右侧灰色日期 + 虚线分隔 */
+.yqx_news_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.yqx_news_list li {
+    display: flex;
+    align-items: center;
+    height: 23px;
+    line-height: 23px;
+    border-bottom: 1px dashed #d5d5d5;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.yqx_news_list li:last-child {
+    border-bottom: none;
+}
+
+/* 红色方块项目符号 */
+.yqx_news_list li::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 6px;
+    margin-right: 6px;
+    background: #cc0000;
+}
+
+.yqx_news_list a {
+    color: #0c74b4;
+    text-decoration: none;
+}
+
+/* 悬停 / 已访问：变红（对应设计稿 3.jpg 的红色行） */
+.yqx_news_list a:hover {
+    color: #cc0000;
+}
+
+.yqx_news_list li.yqx_visited a {
+    color: #cc0000;
+}
+
+/* 右侧日期 */
+.yqx_date {
+    flex: none;
+    margin-left: auto;
+    padding-left: 8px;
+    color: #7d7d7d;
+}

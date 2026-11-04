@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+  作者：杨祺轩
+  建立时间：2026-11-04 13:41:44
+  使用大模型：GLM-5.3-Flash
+  功能名称：新闻 tab 选项卡页面
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻 tab 选项卡 · 杨祺轩</title>
+    <style>
+        /* 页面整体 */
+        body {
+            margin: 0;
+            padding: 40px 16px;
+            background: #f2f5fa;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #24354a;
+        }
+
+        .yqx_page {
+            width: min(760px, 100%);
+            margin: 0 auto;
+        }
+
+        /* 返回首页链接 */
+        .yqx_back {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #397fb5;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .yqx_back:hover {
+            color: #d45487;
+            text-decoration: underline;
+        }
+
+        /* 选项卡组件容器 */
+        .yqx_tabs {
+            background: #ffffff;
+            border: 1px solid #d8e0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(60, 87, 139, 0.10);
+        }
+
+        /* 选项卡按钮条 */
+        .yqx_tab_bar {
+            display: flex;
+            border-bottom: 1px solid #d8e0f0;
+        }
+
+        /* 单个选项卡按钮 */
+        .yqx_tab_item {
+            flex: 1;
+            padding: 14px 8px;
+            border: none;
+            background: #f7f8ff;
+            color: #64758a;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 160ms ease, color 160ms ease;
+        }
+
+        .yqx_tab_item:hover {
+            background: #eef3fb;
+        }
+
+        /* 选中状态 */
+        .yqx_tab_item.yqx_active {
+            background: #ffffff;
+            color: #d45487;
+            font-weight: 700;
+            box-shadow: inset 0 -3px 0 #d45487;
+        }
+
+        /* 选项卡面板 */
+        .yqx_tab_panel {
+            display: none;
+            padding: 20px 26px;
+        }
+
+        /* 显示状态 */
+        .yqx_tab_panel.yqx_show {
+            display: block;
+        }
+
+        /* 面板内新闻列表 */
+        .yqx_news_list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .yqx_news_list li {
+            padding: 12px 4px;
+            border-bottom: 1px dashed #d8e0f0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .yqx_news_list li:last-child {
+            border-bottom: none;
+        }
+
+        .yqx_news_list span {
+            margin-right: 10px;
+            color: #397fb5;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="yqx_page">
+        <a class="yqx_back" href="index.html">← 返回首页</a>
+
+        <!-- 新闻选项卡：国内新闻为默认选中 -->
+        <div class="yqx_tabs" id="yqx_news_tabs">
+            <div class="yqx_tab_bar">
+                <button class="yqx_tab_item yqx_active" type="button">国内新闻</button>
+                <button class="yqx_tab_item" type="button">省内新闻</button>
+                <button class="yqx_tab_item" type="button">国际新闻</button>
+                <button class="yqx_tab_item" type="button">最热新闻</button>
+            </div>
+
+            <div class="yqx_tab_panel yqx_show">
+                <ul class="yqx_news_list">
+                    <li><span>11-04</span>全国多地出台措施，进一步支持中小企业数字化转型</li>
+                    <li><span>11-03</span>我国可再生能源装机规模再创新高，绿色能源加速发展</li>
+                    <li><span>11-02</span>新版行业标准发布，多个领域迎来技术升级窗口期</li>
+                </ul>
+            </div>
+
+            <div class="yqx_tab_panel">
+                <ul class="yqx_news_list">
+                    <li><span>11-04</span>省内高校举办创新创业大赛，多支团队获得省级奖项</li>
+                    <li><span>11-03</span>全省重点交通项目相继通车，群众出行更加便捷</li>
+                    <li><span>11-01</span>我省启动秋冬季文化和旅游消费季系列活动</li>
+                </ul>
+            </div>
+
+            <div class="yqx_tab_panel">
+                <ul class="yqx_news_list">
+                    <li><span>11-04</span>多国代表在气候大会上呼吁加强跨国清洁能源合作</li>
+                    <li><span>11-03</span>国际科研团队发布最新深空探测研究成果</li>
+                    <li><span>11-02</span>全球数字经济规模持续增长，多国加快相关立法</li>
+                </ul>
+            </div>
+
+            <div class="yqx_tab_panel">
+                <ul class="yqx_news_list">
+                    <li><span>11-04</span>话题一：新学期校园运动会上，大学生自创加油方式走红</li>
+                    <li><span>11-03</span>话题二：图书馆"深夜自习室"上线，受到学生欢迎</li>
+                    <li><span>11-02</span>话题三：一场社区志愿服务活动，带动数百人报名参与</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 外部引用 js 文件夹中的选项卡脚本 -->
+    <script src="js/yqx_tab.js"></script>
+</body>
+</html>

@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+  作者：杨祺轩
+  建立时间：2026-10-30 15:27:05（2026-11-04 13:50:33 增加选项卡分类导航）
+  使用大模型：GLM-5.3-Flash
+  功能名称：课堂实践目录页（含 tab 选项卡分类导航）
+-->
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -264,6 +270,10 @@
             padding: 0 0 86px;
         }
 
+        .yqx_tab_panel.yqx_show {
+            display: block;
+        }
+
         .page-list {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -476,16 +486,39 @@
                 <p>本目录及上级课堂文件均使用本地相对路径打开，不依赖 CDN。</p>
             </div>
 
-            <nav class="page-list" aria-label="全部网页链接">
-                <a class="page-link" href="index.html"><span>课堂首页 · index.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/9-2.html"><span>Flex 复习 · 9-2.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/9-11.html"><span>新增实践 · 9-11.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/svg005.html"><span>SVG 图标 · svg005.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/font/demo_index.html"><span>字体图标 · demo_index.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/datatype.html"><span>数据类型练习 · datatype.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/object.html"><span>JavaScript 对象 · object.html</span><span>↗</span></a>
-                <a class="page-link" href="webprojectyangqixuan/function.html"><span>函数与猜数游戏 · function.html</span><span>↗</span></a>
-            </nav>
+            <div class="yqx_tabs" id="yqx_page_tabs">
+                <div class="yqx_tab_bar">
+                    <button class="yqx_tab_item yqx_active" type="button">课堂练习</button>
+                    <button class="yqx_tab_item" type="button">项目作品</button>
+                    <button class="yqx_tab_item" type="button">组件示例</button>
+                </div>
+
+                <div class="yqx_tab_panel yqx_show">
+                    <nav class="page-list" aria-label="课堂练习链接">
+                        <a class="page-link" href="index.html"><span>课堂首页 · index.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/9-2.html"><span>Flex 复习 · 9-2.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/9-11.html"><span>新增实践 · 9-11.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/svg005.html"><span>SVG 图标 · svg005.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/font/demo_index.html"><span>字体图标 · demo_index.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/datatype.html"><span>数据类型练习 · datatype.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/object.html"><span>JavaScript 对象 · object.html</span><span>↗</span></a>
+                        <a class="page-link" href="webprojectyangqixuan/function.html"><span>函数与猜数游戏 · function.html</span><span>↗</span></a>
+                    </nav>
+                </div>
+
+                <div class="yqx_tab_panel">
+                    <nav class="page-list" aria-label="项目作品链接">
+                        <a class="page-link" href="四级项目1/index.html"><span>四级项目1 · 网易云音乐（位图导航）</span><span>↗</span></a>
+                        <a class="page-link" href="四级项目2/index.html"><span>四级项目2 · 网易云音乐（iconfont 导航）</span><span>↗</span></a>
+                    </nav>
+                </div>
+
+                <div class="yqx_tab_panel">
+                    <nav class="page-list" aria-label="组件示例链接">
+                        <a class="page-link" href="yqx_tab.html"><span>新闻选项卡 · yqx_tab.html</span><span>↗</span></a>
+                    </nav>
+                </div>
+            </div>
         </section>
 
         <section class="prompt-section page-shell">
@@ -497,5 +530,8 @@
     </main>
 
     <footer class="page-shell">杨祺轩 · 《高级网页设计》课堂实践目录</footer>
+
+    <!-- 外部引用可复用选项卡脚本 -->
+    <script src="js/yqx_tab.js"></script>
 </body>
 </html>

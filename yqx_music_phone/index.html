@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+  作者：杨祺轩
+  建立时间：2026-11-04 14:06:07
+  使用大模型：GLM-5.3-Flash
+  功能名称：音乐手机频道选项卡列表（设计稿一比一还原：行情/导购/新品/评测）
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐手机 · 频道列表 - 杨祺轩</title>
+    <link rel="stylesheet" href="css/yqx_style.css">
+</head>
+<body>
+    <!-- 整个模块同时是选项卡组件容器（yqx_tabs），复用 js/yqx_tab.js 实现切换 -->
+    <div class="yqx_module yqx_tabs" id="yqx_phone_tabs">
+        <!-- 表头：左侧频道标题 + 右侧选项卡 -->
+        <div class="yqx_head">
+            <h2 class="yqx_title">音乐手机</h2>
+            <div class="yqx_tab_bar">
+                <button class="yqx_tab_item yqx_active" type="button">行情</button>
+                <button class="yqx_tab_item" type="button">导购</button>
+                <button class="yqx_tab_item" type="button">新品</button>
+                <button class="yqx_tab_item" type="button">评测</button>
+            </div>
+        </div>
+
+        <!-- 行情（默认选中） -->
+        <div class="yqx_tab_panel yqx_show">
+            <ul class="yqx_news_list">
+                <li><a href="javascript:;">音乐强劲 苹果iPhone 5价格稳定</a><span class="yqx_date">(12/19)</span></li>
+                <li><a href="javascript:;">高性能双四核音乐机 魅族MX3低价热卖</a><span class="yqx_date">(12/19)</span></li>
+                <li><a href="javascript:;">音乐品质最出色 vivo X3促销2199</a><span class="yqx_date">(12/12)</span></li>
+                <li><a href="javascript:;">时尚音乐手机 vivo Xplay济宁2798元</a><span class="yqx_date">(11/27)</span></li>
+                <li><a href="javascript:;">好音乐好拍照 OPPO Find5今报价2580元</a><span class="yqx_date">(08/27)</span></li>
+                <li><a href="javascript:;">1.5GHz四核1080p OPPO Find 5降价热卖</a><span class="yqx_date">(07/30)</span></li>
+                <li><a href="javascript:;">彩色呼吸带双核机 索尼M35h促销2299</a><span class="yqx_date">(06/08)</span></li>
+                <li><a href="javascript:;">1.7GHz四核1080p vivo Xplay热卖中</a><span class="yqx_date">(06/07)</span></li>
+            </ul>
+        </div>
+
+        <!-- 导购 -->
+        <div class="yqx_tab_panel">
+            <ul class="yqx_news_list">
+                <li><a href="javascript:;">优秀音效漂亮外观 市售音乐手机盘点</a><span class="yqx_date">(09/13)</span></li>
+                <li><a href="javascript:;">不要虐待耳朵 8款独特音效的音乐手机荐</a><span class="yqx_date">(09/06)</span></li>
+                <li><a href="javascript:;">最低只要799 9款高性能音乐手机推荐</a><span class="yqx_date">(07/22)</span></li>
+                <li><a href="javascript:;">长恨导主后高考时代 奖励孩子的智能手机全攻略</a><span class="yqx_date">(06/13)</span></li>
+                <li><a href="javascript:;">降价不限时 端午后值得关注降价四核机推荐</a><span class="yqx_date">(06/13)</span></li>
+                <li><a href="javascript:;">高考之后尽情狂欢！ 学生超强手机推荐</a><span class="yqx_date">(06/13)</span></li>
+                <li><a href="javascript:;">上半年看这里 最热1080P四核旗舰手机</a><span class="yqx_date">(06/13)</span></li>
+                <li><a href="javascript:;">最厚不过7.99毫米 热门超强强大搜罗</a><span class="yqx_date">(06/08)</span></li>
+            </ul>
+        </div>
+
+        <!-- 新品 -->
+        <div class="yqx_tab_panel">
+            <ul class="yqx_news_list">
+                <li><a href="javascript:;">无限接近完美！ vivo Xplay3S现场体验</a><span class="yqx_date">(12/19)</span></li>
+                <li><a href="javascript:;">入门音乐机 诺基亚Lumia 525现身工信部</a><span class="yqx_date">(11/05)</span></li>
+                <li><a href="javascript:;">传诺基亚下月将推首款WP音乐手机Glee</a><span class="yqx_date">(09/29)</span></li>
+                <li><a href="javascript:;">软硬兼施 vivo Xstudio Hi-Fi音乐圈讲解</a><span class="yqx_date">(08/23)</span></li>
+                <li><a href="javascript:;">没有中国 Spotify All Access音乐服务登陆欧洲</a><span class="yqx_date">(08/09)</span></li>
+                <li><a href="javascript:;">Hi-Fi录音棚 vivo X3创Kstudio音乐系统</a><span class="yqx_date">(08/07)</span></li>
+                <!-- 已访问过的新闻：红色显示，对应设计稿 3.jpg 中的红色行 -->
+                <li class="yqx_visited"><a href="javascript:;">Hi-Fi不够vivo又玩录音棚 X3音乐处理方案曝光</a><span class="yqx_date">(08/06)</span></li>
+                <li><a href="javascript:;">小伙伴都惊呆了 薄至6mm以下vivo X3终露面</a><span class="yqx_date">(07/31)</span></li>
+            </ul>
+        </div>
+
+        <!-- 评测 -->
+        <div class="yqx_tab_panel">
+            <ul class="yqx_news_list">
+                <li><a href="javascript:;">音乐历久弥新 TD版魅族MX3评测</a><span class="yqx_date">(12/19)</span></li>
+                <li><a href="javascript:;">极致影音完美音质 步步高vivo Xplay移动版图赏</a><span class="yqx_date">(07/24)</span></li>
+                <li><a href="javascript:;">都是大屏何不同？ 三星S4/Mega静态评测</a><span class="yqx_date">(06/20)</span></li>
+                <li><a href="javascript:;">超值四核智能机 HTC Desire 608t评测</a><span class="yqx_date">(06/20)</span></li>
+                <li><a href="javascript:;">完美融合微博 魅族MX2 Flyme 2.2.5体验</a><span class="yqx_date">(06/18)</span></li>
+                <li><a href="javascript:;">1080p屏Hi-Fi旗舰 vivo Xplay娱乐体验</a><span class="yqx_date">(06/13)</span></li>
+                <li><a href="javascript:;">5.7英寸高清巨屏 酷派9070+XO影音体验</a><span class="yqx_date">(06/06)</span></li>
+                <li><a href="javascript:;">悬浮窗口播放 vivo Xplay视频功能体验</a><span class="yqx_date">(06/06)</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 外部引用可复用选项卡脚本 -->
+    <script src="js/yqx_tab.js"></script>
+</body>
+</html>

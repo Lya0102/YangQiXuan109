@@ -18,6 +18,8 @@ All files are UTF-8 without BOM. Windows PowerShell 5.1 `Get-Content` without `-
 ## Conventions
 
 - Standing rules recorded in `yqx_prompt.md`: prefix new CSS classes, IDs, and JS variables with `yqx_`; append each prompt (timestamp, model, text) to `yqx_prompt.md` without overwriting; add links to new HTML pages from the relevant `index.html`.
+- New HTML files must carry a header comment right after `<!DOCTYPE html>` (or in `<head>`) with four items: 作者「杨祺轩」、创建时间（`YYYY-MM-DD HH:mm:ss`）、使用的大模型（如 GLM-5.3-Flash）、功能名称（页面用途一句话）。
+- In JS (inline `<script>` or `.js`), every function must be preceded by a short comment stating its main functionality (in Chinese).
 - Older files (`四级项目1/`, most of `webprojectyangqixuan/`) predate the `yqx_` rule. Do not mass-rename existing classes or IDs.
 - In `webprojectyangqixuan/index.html`, a new page needs both a card in `#directory` and an entry in the `#all-pages` list.
 - The workspace root has no `index.html`; the homepage is `webprojectyangqixuan/index.html`. Existing links such as `iconfont-1.html -> index.html` and `webprojectyangqixuan/index.html -> ../datatype.html` are broken, so verify relative paths when adding pages.
