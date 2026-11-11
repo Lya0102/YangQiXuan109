@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <!--
   作者：杨祺轩
-  建立时间：2026-11-11 09:26:40
+  建立时间：2026-11-11 09:26:40（2026-11-11 10:02 改为对话气泡版）
   使用大模型：GLM-5.3-Flash
-  功能名称：Swiper 课题任务 AI 提示词记录页（任务一二三提交物访问入口）
+  功能名称：Swiper 课题任务 AI 对话记录页（任务一二三提交物访问入口）
 -->
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 提示词记录 · Swiper 课题任务 - 杨祺轩</title>
+    <title>AI 对话记录 · Swiper 课题任务 - 杨祺轩</title>
     <style>
         /* 作者：杨祺轩 提示词记录页样式，全部 yqx_ 前缀 */
         body { margin: 0; background: #f4f6fb; font: 15px/1.8 "Microsoft YaHei", "微软雅黑", sans-serif; color: #2c3345; }
@@ -20,12 +20,26 @@
         h1 { font-size: 26px; margin: 6px 0 4px; color: #17233d; }
         .yqx_sub { color: #7b8299; font-size: 13px; margin-bottom: 26px; }
         .yqx_card { background: #ffffff; border: 1px solid #e3e7f2; border-radius: 10px; padding: 24px 28px; margin-bottom: 26px; box-shadow: 0 2px 8px rgba(23,35,61,.05); }
-        .yqx_card h2 { font-size: 19px; margin: 0 0 12px; color: #17233d; border-left: 4px solid #0c74b4; padding-left: 10px; }
+        .yqx_card h2 { font-size: 19px; margin: 0 0 14px; color: #17233d; border-left: 4px solid #0c74b4; padding-left: 10px; }
         .yqx_card h3 { font-size: 15px; margin: 18px 0 8px; color: #0c74b4; }
-        .yqx_code { background: #17233d; color: #d9e4ff; border-radius: 8px; padding: 14px 16px; font: 13px/1.7 Consolas, monospace; overflow-x: auto; white-space: pre; }
+        /* 对话气泡 */
+        .yqx_chat { display: flex; flex-direction: column; gap: 14px; margin: 12px 0; }
+        .yqx_row { display: flex; gap: 10px; align-items: flex-start; }
+        .yqx_row.yqx_me { flex-direction: row-reverse; }
+        .yqx_avatar { flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .yqx_me .yqx_avatar { background: #e3efff; }
+        .yqx_ai .yqx_avatar { background: #e8f8ef; }
+        .yqx_bubble { max-width: 78%; border-radius: 12px; padding: 10px 16px; font-size: 14px; }
+        .yqx_me .yqx_bubble { background: #1d5bbf; color: #ffffff; border-top-right-radius: 2px; }
+        .yqx_ai .yqx_bubble { background: #f2f6ff; color: #2c3345; border: 1px solid #dbe4f7; border-top-left-radius: 2px; }
+        .yqx_bubble .yqx_code { margin: 8px 0 2px; }
+        .yqx_round { text-align: center; color: #9aa3bd; font-size: 12px; margin: 4px 0 0; }
+        .yqx_code { background: #17233d; color: #d9e4ff; border-radius: 8px; padding: 12px 16px; font: 13px/1.7 Consolas, monospace; overflow-x: auto; white-space: pre; }
+        .yqx_ai .yqx_code { background: #17233d; color: #d9e4ff; }
         .yqx_ok { color: #12864f; font-weight: bold; }
         .yqx_no { color: #cc0000; font-weight: bold; }
-        .yqx_quote { background: #f6f8fe; border-left: 3px solid #9fb3dc; padding: 8px 14px; margin: 8px 0; color: #3d4566; border-radius: 0 6px 6px 0; }
+        .yqx_me .yqx_ok, .yqx_me .yqx_no { color: inherit; }
+        .yqx_note { background: #f6f8fe; border-left: 3px solid #9fb3dc; padding: 8px 14px; margin: 10px 0 0; color: #3d4566; border-radius: 0 6px 6px 0; font-size: 14px; }
         .yqx_cong { background: linear-gradient(135deg, #fff7ec, #fff2f2); border: 1px solid #f5d9b8; border-radius: 10px; padding: 24px 28px; line-height: 2; }
         .yqx_cong h2 { font-size: 19px; margin: 0 0 10px; color: #b4450b; }
     </style>
@@ -38,61 +52,121 @@
             <a href="swiper-task.html">← 返回 Swiper 任务页</a>
         </div>
 
-        <h1>AI 提示词记录 · Swiper 课题任务</h1>
-        <div class="yqx_sub">作者：杨祺轩 · 24002120109 · 高级网页设计 · 2026-2027-1 · 提交物：swiper-task.html（能运行）+ 本记录</div>
+        <h1>AI 对话记录 · Swiper 课题任务</h1>
+        <div class="yqx_sub">作者：杨祺轩 · 24002120109 · 高级网页设计 · 2026-2027-1 · 提交物：swiper-task.html（能运行）+ 本对话记录</div>
 
-        <!-- 任务一 -->
+        <!-- 任务一：两轮提示词对话 -->
         <div class="yqx_card">
-            <h2>任务一 · 提示词工程师 ⭐⭐</h2>
-            <p>需求：① 无缝循环 ② 3.2 秒自动翻页且手动操作后不停止 ③ 圆点分页器可点击 ④ 初始效果 cube</p>
-            <h3>第 1 轮提示词</h3>
-            <div class="yqx_quote">帮我写一个 Swiper 11 的初始化配置：自动轮播、有循环、底部有圆点、效果用 cube，挂在 #wySw4 上。</div>
-            <div class="yqx_code">new Swiper('#wySw4', {
+            <h2>任务一 · 提示词工程师 ⭐⭐（需求：① 无缝循环 ② 3.2 秒自动翻页且手动后不停 ③ 圆点可点击 ④ 初始 cube）</h2>
+            <div class="yqx_chat">
+                <div class="yqx_round">—— 第 1 轮 ——</div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">帮我写一个 Swiper 11 的初始化配置：自动轮播、有循环、底部有圆点、效果用 cube，挂在 #wySw4 上。</div>
+                </div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">好的，配置如下，直接粘进页面即可：
+                        <div class="yqx_code">new Swiper('#wySw4', {
   loop: true,
   autoplay: true,
   effect: 'cube',
   pagination: '.swiper-pagination',
 });</div>
-            <p><strong>验证结论</strong>：自动翻页 <span class="yqx_ok">✅</span> 但 delay 是默认 3000 不是 3200 <span class="yqx_no">❌</span>；手动拖动后自动播放会停 <span class="yqx_no">❌</span>（缺 disableOnInteraction: false）；圆点能显示但点击不能跳转 <span class="yqx_no">❌</span>（字符串写法无法传 clickable）。</p>
-            <h3>第 2 轮提示词（把需求 1:1 对应到参数名）</h3>
-            <div class="yqx_quote">重新给 #wySw4 写配置：loop: true；autoplay 的 delay 必须是 3200 毫秒且 disableOnInteraction 为 false（手动滑动后不停）；pagination 用 el 指向 #wyPag4 且 clickable: true；初始效果 cube；Swiper 11 的 pagination 必须写成对象形式。</div>
-            <div class="yqx_code">new Swiper('#wySw4', {
+                    </div>
+                </div>
+                <div class="yqx_round">—— 亲自粘进页面验证 ——</div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">验证发现问题：自动翻页 ✅ 但 delay 是默认 3000 不是 3200 ❌；手动拖动后自动播放停了 ❌；圆点显示了但点击不能跳转 ❌。重新给，要求精确到参数名：autoplay 的 delay 必须是 3200 毫秒、disableOnInteraction 为 false（手动滑动后不停）；pagination 必须写成对象形式，el 指向 #wyPag4 且 clickable: true；初始效果 cube；loop: true。</div>
+                </div>
+                <div class="yqx_round">—— 第 2 轮 ——</div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">抱歉遗漏了细节，按你的参数要求修正如下：
+                        <div class="yqx_code">new Swiper('#wySw4', {
   loop: true,
   effect: 'cube',
   autoplay: { delay: 3200, disableOnInteraction: false },
   pagination: { el: '#wyPag4', clickable: true },
 });</div>
-            <p><strong>验证结论</strong>：自动 3.2 秒翻 <span class="yqx_ok">✅</span>、拖动松手后继续自动播 <span class="yqx_ok">✅</span>、点圆点跳转 <span class="yqx_ok">✅</span>、立方体效果 <span class="yqx_ok">✅</span>，四项需求全部通过（截图见答辩）。</p>
-            <h3>答辩要点</h3>
-            <p>第一版提示词漏掉三个"隐形需求"（时长毫秒数、交互后不停止、圆点可点击），只说"自动轮播、有圆点"，AI 就给默认值；第二轮改成需求 1:1 对应参数名的写法，AI 没有自由发挥空间。AI 第一次错在 pagination 用了旧版字符串写法、autoplay:true 是默认 3000ms。</p>
+                        说明：disableOnInteraction: false 保证用户拖动后自动播放继续；pagination 用对象写法才能携带 clickable 配置。
+                    </div>
+                </div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">再次粘进页面验证：自动 3.2 秒翻 ✅、拖动松手后继续自动播 ✅、点圆点跳转 ✅、立方体效果 ✅——四项需求全部通过（截图见答辩）。</div>
+                </div>
+            </div>
+            <div class="yqx_note"><strong>答辩要点</strong>：第 1 轮提示词漏掉三个"隐形需求"（时长毫秒数、交互后不停止、圆点可点击），只说"自动轮播、有圆点"，AI 就给默认值；第 2 轮改成需求 1:1 对应参数名的写法，AI 没有自由发挥空间。AI 第一次错在 pagination 用旧版字符串写法、autoplay:true 是默认 3000ms。</div>
         </div>
 
-        <!-- 任务二 -->
+        <!-- 任务二：creative 对话 -->
         <div class="yqx_card">
-            <h2>任务二 · creative 仿写「电影墙」⭐⭐⭐</h2>
-            <p>参考官方示例 257-effect-creative.html，为演示四新增第 7 个按钮「creative 电影墙」：</p>
-            <div class="yqx_code">creativeEffect: {
+            <h2>任务二 · creative 仿写「电影墙」⭐⭐⭐（新增第 7 个按钮，课堂未讲，AI 自学）</h2>
+            <div class="yqx_chat">
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">Swiper 11 还有个第 7 种效果 creative 我没学过。参考官方示例 257-effect-creative.html，帮我写一份 creativeEffect：要"上一张缩小左移并带角度退场、下一张放大右移进场"的电影选片墙感觉，挂在演示四上。</div>
+                </div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">creative 效果用 creativeEffect 配置，prev 控制上一张、next 控制下一张，translate 是 [x, y, z] 位移（百分号相对 swiper 容器宽高，第三个值 z 是 translateZ，负值后退变小、正值前进变大），rotate 第三值绕 z 轴转：
+                        <div class="yqx_code">creativeEffect: {
   limitProgress: 2,
   prev: { translate: ['-120%', 0, -320], rotate: [0, 0, -16] },
   next: { translate: ['115%', 0, 150],  rotate: [0, 0, 12]  },
 }</div>
-            <h3>用自己的话回答：prev / next 的 transform 各控制什么？</h3>
-            <p><strong>prev 控制上一张</strong>退场到哪：translate 三个值是 [x, y, z] 位移，x 负值往左移、z 负值往屏幕深处退（看起来变小）；rotate 第三值让它绕 z 轴歪 16 度——合起来就是"缩小左移带角度地退到幕后"。<strong>next 控制下一张</strong>从哪进场：x 正值从右边 115% 容器宽处滑入，z 正值让它稍前倾（看起来偏大，有"凑近镜头"的电影感），歪 12 度保持海报感。</p>
-            <h3>答辩抽问自测</h3>
-            <p>① transform 里的百分号相对 <strong>swiper 容器自身宽高</strong>，不是 slide；② 让卡片转 20 度：把 prev 的 rotate 改成 [0, 0, -20]。</p>
+                    </div>
+                </div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">用自己的话确认一下理解：prev / next 的 transform 各控制什么？</div>
+                </div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">prev 控制上一张"退场"到哪：x 负值左移、z 负值向屏幕深处退（看起来变小）、rotate 让它歪 16 度——合起来就是缩小左移带角度退到幕后；next 控制下一张从哪"进场"：x 正值从右边 115% 容器宽处滑入、z 正值稍前倾（偏大有凑近镜头的电影感）、歪 12 度保持海报感。</div>
+                </div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">已加第 7 个按钮 data-fx="creative" 并在重建函数里带上这份配置，浏览器点按钮验证：容器出现 swiper-creative 类、下一张滑片实测带 matrix3d 旋转位移 ✅。抽问自测：百分号相对 swiper 容器自身宽高；让卡片转 20 度就把 prev 的 rotate 改成 [0, 0, -20]。</div>
+                </div>
+            </div>
         </div>
 
-        <!-- 任务三 -->
+        <!-- 任务三：keyboard 对话 -->
         <div class="yqx_card">
-            <h2>任务三 · 综合创作 ⭐⭐⭐ 加分项</h2>
-            <h3>① 第六件展品：爱达·魔都号</h3>
-            <p>四个轮播各新增一张 slide（img + 标题「爱达·魔都号」+ 说明文字，三层结构完整）。爱达·魔都号为中国首艘国产大型邮轮，2024 年 1 月 1 日商业首航；图片 AI 生成横版 16:9，保存为 swiper-imgs/aidao_1.jpg。</p>
-            <h3>② 超纲能力：keyboard 键盘控制（四选一）</h3>
-            <div class="yqx_code">keyboard: {
+            <h2>任务三 · 综合创作 ⭐⭐⭐（① 第六件展品爱达·魔都号 ② 超纲能力 keyboard 键盘控制）</h2>
+            <div class="yqx_chat">
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">给演示四加键盘控制翻页，要求不能干扰页面本身的滚动。</div>
+                </div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">在配置里加 keyboard: true 即可，方向 ←/→ 或 PageUp/PageDown 翻页：
+                        <div class="yqx_code">keyboard: true</div>
+                    </div>
+                </div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">验证发现不对：页面滚到下方看别的板块时，按方向键轮播还是会翻页，和页面滚动"抢"按键 ❌。</div>
+                </div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">需要加 onlyInViewport: true，轮播只有在视口内才响应按键，滚出屏幕后按键归还给页面滚动：
+                        <div class="yqx_code">keyboard: {
   enabled: true,        // 开启方向键翻页
-  onlyInViewport: true, // 轮播在视口内才响应按键，不干扰页面滚动
+  onlyInViewport: true, // 轮播在视口内才响应按键
 }</div>
-            <p><strong>代码含义</strong>：keyboard 模块监听 keydown，方向右/PageDown 翻下一张、方向左翻上一张；onlyInViewport: true 让轮播滚出屏幕后按键归还给页面滚动。<strong>AI 第一次给的不对</strong>：只给了 keyboard: true，页面下方按方向键会同时触发轮播翻页和页面滚动，追问后加 onlyInViewport: true 解决。<strong>验证</strong>：点击演示四区域后按 ←/→ 翻页正常，自动播放不受影响。</p>
+                    </div>
+                </div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">修好了 ✅ 点击演示四区域后按 ←/→ 翻页正常，自动播放不受影响。第六件展品爱达·魔都号（中国首艘国产大型邮轮，2024 年 1 月 1 日商业首航）也加进了四个轮播，slide 三层结构完整，图片用 AI 生成横版 16:9 存为 swiper-imgs/aidao_1.jpg，提示词已存 yqx_prompt.md。</div>
+                </div>
+            </div>
+            <div class="yqx_note"><strong>答辩四连问自测</strong>：① keyboard 模块监听 keydown，方向键映射翻页；② AI 第一次只给 keyboard: true，没处理视口外抢按键的问题，我追问后加 onlyInViewport: true；③ enabled 开关模块、onlyInViewport 限定只在可视区内响应；④ 现场把 autoplay delay 改成指定毫秒值，每张停留时间随之变化。</div>
         </div>
 
         <!-- 思政升华 -->
