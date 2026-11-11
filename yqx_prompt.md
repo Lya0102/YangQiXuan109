@@ -92,6 +92,27 @@
 
 > C:\Users\Lenovo\Desktop\8 要求项目一比一还原，使用trae，代码按照之前上课设定的规则，所有 CSS 类名、id、JS 变量必须以 yqx_ 开头，注释也要有你的姓名。github仓库名称要包含自己姓名全拼，重复的同学+学号后三位(我的学号后三位是109，全名是YangQiXuan)
 
+## 2026-11-06 10:05:33
+
+- **模型**：GLM-5.3-Flash
+- **提示词内容**：
+
+> 给我完成swiper-task.html里的任务4的效果代码
+
+## 2026-11-06 10:16:40
+
+- **模型**：GLM-5.3-Flash
+- **提示词内容**：
+
+> https://spontaneous-valkyrie-4e4229.netlify.app/swiper-lesson 这个链接里的课题任务+思政升华怎么做（任务一提示词工程、任务二creative仿写、任务三综合创作+思政升华）
+
+## 2026-11-11 09:20:15
+
+- **模型**：GLM-5.3-Flash
+- **提示词内容**：
+
+> https://magical-brioche-23f38a.netlify.app 给我根据这个链接里的swiper里最后的三个任务改我的swiper-task.html,要一模一样，要入口（截图附任务要求：11.11前提交到github或netlify发布，并给提示词留访问入口）
+
 ## 2026-10-30 15:22:05
 
 - **模型**：GLM-5.3-Flash
