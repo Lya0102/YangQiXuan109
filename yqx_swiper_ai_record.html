@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   作者：杨祺轩
-  建立时间：2026-11-11 09:26:40（2026-11-11 10:02 改为对话气泡版）
+  建立时间：2026-11-11 09:26:40（2026-11-11 10:46 改为对话气泡版并加入 5 张真实 AI 对话截图）
   使用大模型：GLM-5.3-Flash
   功能名称：Swiper 课题任务 AI 对话记录页（任务一二三提交物访问入口）
 -->
@@ -42,6 +42,9 @@
         .yqx_note { background: #f6f8fe; border-left: 3px solid #9fb3dc; padding: 8px 14px; margin: 10px 0 0; color: #3d4566; border-radius: 0 6px 6px 0; font-size: 14px; }
         .yqx_cong { background: linear-gradient(135deg, #fff7ec, #fff2f2); border: 1px solid #f5d9b8; border-radius: 10px; padding: 24px 28px; line-height: 2; }
         .yqx_cong h2 { font-size: 19px; margin: 0 0 10px; color: #b4450b; }
+        /* 真实对话截图 · 杨祺轩 */
+        .yqx_shot { display: block; max-width: 100%; border: 1px solid #b9c6e4; border-radius: 8px; margin: 10px 0 0; }
+        .yqx_shot_tag { display: inline-block; margin-top: 6px; font-size: 12px; color: #0c74b4; background: #e8f2ff; border-radius: 4px; padding: 1px 8px; }
     </style>
 </head>
 <body>
@@ -73,6 +76,8 @@
   effect: 'cube',
   pagination: '.swiper-pagination',
 });</div>
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot1.png" alt="真实对话截图①：第 1 轮提问与 AI 回答">
+                        <span class="yqx_shot_tag">真实对话截图 ①（Trae · GLM-5.3-Flash）</span>
                     </div>
                 </div>
                 <div class="yqx_round">—— 亲自粘进页面验证 ——</div>
@@ -91,6 +96,8 @@
   pagination: { el: '#wyPag4', clickable: true },
 });</div>
                         说明：disableOnInteraction: false 保证用户拖动后自动播放继续；pagination 用对象写法才能携带 clickable 配置。
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot2.png" alt="真实对话截图②：第 2 轮精确提问与 AI 修正回答">
+                        <span class="yqx_shot_tag">真实对话截图 ②（Trae · GLM-5.3-Flash）</span>
                     </div>
                 </div>
                 <div class="yqx_row yqx_me">
@@ -117,6 +124,8 @@
   prev: { translate: ['-120%', 0, -320], rotate: [0, 0, -16] },
   next: { translate: ['115%', 0, 150],  rotate: [0, 0, 12]  },
 }</div>
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot3.png" alt="真实对话截图③：creative 电影墙配置与解释">
+                        <span class="yqx_shot_tag">真实对话截图 ③（Trae · GLM-5.3-Flash）</span>
                     </div>
                 </div>
                 <div class="yqx_row yqx_me">
@@ -146,6 +155,8 @@
                     <div class="yqx_avatar">🤖</div>
                     <div class="yqx_bubble">在配置里加 keyboard: true 即可，方向 ←/→ 或 PageUp/PageDown 翻页：
                         <div class="yqx_code">keyboard: true</div>
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot4.png" alt="真实对话截图④：keyboard 第一问与 AI 回答">
+                        <span class="yqx_shot_tag">真实对话截图 ④（Trae · GLM-5.3-Flash）</span>
                     </div>
                 </div>
                 <div class="yqx_row yqx_me">
@@ -159,6 +170,8 @@
   enabled: true,        // 开启方向键翻页
   onlyInViewport: true, // 轮播在视口内才响应按键
 }</div>
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot5.png" alt="真实对话截图⑤：追问与 onlyInViewport 修正">
+                        <span class="yqx_shot_tag">真实对话截图 ⑤（Trae · GLM-5.3-Flash）</span>
                     </div>
                 </div>
                 <div class="yqx_row yqx_me">
