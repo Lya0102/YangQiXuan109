@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+  作者：杨祺轩
+  建立时间：2026-11-11 10:55:20
+  使用大模型：GLM-5.3-Flash
+  功能名称：Swiper 任务一（提示词工程师）AI 对话独立跳转页
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务一 · 提示词工程师 AI 对话记录 - 杨祺轩</title>
+    <style>
+        /* 作者：杨祺轩 任务独立页样式，全部 yqx_ 前缀 */
+        body { margin: 0; background: #f4f6fb; font: 15px/1.8 "Microsoft YaHei", "微软雅黑", sans-serif; color: #2c3345; }
+        .yqx_wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
+        .yqx_head_bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+        .yqx_head_bar a { color: #0c74b4; text-decoration: none; font-size: 14px; }
+        .yqx_head_bar a:hover { color: #cc0000; }
+        h1 { font-size: 26px; margin: 6px 0 4px; color: #17233d; }
+        .yqx_sub { color: #7b8299; font-size: 13px; margin-bottom: 26px; }
+        /* 三任务跳转导航 · 杨祺轩 */
+        .yqx_nav { display: flex; gap: 10px; margin-bottom: 20px; }
+        .yqx_nav a { flex: 1; text-align: center; padding: 8px 0; border-radius: 8px; background: #ffffff; border: 1px solid #dbe4f7; color: #0c74b4; text-decoration: none; font-size: 14px; }
+        .yqx_nav a:hover { border-color: #1d5bbf; }
+        .yqx_nav a.yqx_cur { background: #1d5bbf; color: #ffffff; border-color: #1d5bbf; }
+        .yqx_card { background: #ffffff; border: 1px solid #e3e7f2; border-radius: 10px; padding: 24px 28px; margin-bottom: 26px; box-shadow: 0 2px 8px rgba(23,35,61,.05); }
+        .yqx_card h2 { font-size: 19px; margin: 0 0 14px; color: #17233d; border-left: 4px solid #0c74b4; padding-left: 10px; }
+        /* 对话气泡 */
+        .yqx_chat { display: flex; flex-direction: column; gap: 14px; margin: 12px 0; }
+        .yqx_row { display: flex; gap: 10px; align-items: flex-start; }
+        .yqx_row.yqx_me { flex-direction: row-reverse; }
+        .yqx_avatar { flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .yqx_me .yqx_avatar { background: #e3efff; }
+        .yqx_ai .yqx_avatar { background: #e8f8ef; }
+        .yqx_bubble { max-width: 78%; border-radius: 12px; padding: 10px 16px; font-size: 14px; }
+        .yqx_me .yqx_bubble { background: #1d5bbf; color: #ffffff; border-top-right-radius: 2px; }
+        .yqx_ai .yqx_bubble { background: #f2f6ff; color: #2c3345; border: 1px solid #dbe4f7; border-top-left-radius: 2px; }
+        .yqx_bubble .yqx_code { margin: 8px 0 2px; }
+        .yqx_round { text-align: center; color: #9aa3bd; font-size: 12px; margin: 4px 0 0; }
+        .yqx_code { background: #17233d; color: #d9e4ff; border-radius: 8px; padding: 12px 16px; font: 13px/1.7 Consolas, monospace; overflow-x: auto; white-space: pre; }
+        .yqx_ok { color: #12864f; font-weight: bold; }
+        .yqx_no { color: #cc0000; font-weight: bold; }
+        .yqx_me .yqx_ok, .yqx_me .yqx_no { color: inherit; }
+        .yqx_note { background: #f6f8fe; border-left: 3px solid #9fb3dc; padding: 8px 14px; margin: 10px 0 0; color: #3d4566; border-radius: 0 6px 6px 0; font-size: 14px; }
+        /* 真实对话截图 · 杨祺轩 */
+        .yqx_shot { display: block; max-width: 100%; border: 1px solid #b9c6e4; border-radius: 8px; margin: 10px 0 0; }
+        .yqx_shot_tag { display: inline-block; margin-top: 6px; font-size: 12px; color: #0c74b4; background: #e8f2ff; border-radius: 4px; padding: 1px 8px; }
+        .yqx_next { text-align: right; }
+        .yqx_next a { color: #0c74b4; text-decoration: none; font-size: 14px; }
+        .yqx_next a:hover { color: #cc0000; }
+    </style>
+</head>
+<body>
+    <div class="yqx_wrap">
+        <!-- 顶部入口导航 -->
+        <div class="yqx_head_bar">
+            <a href="index.html">← 返回首页</a>
+            <a href="swiper-task.html">← 返回 Swiper 任务页</a>
+        </div>
+
+        <h1>任务一 · 提示词工程师 ⭐⭐</h1>
+        <div class="yqx_sub">作者：杨祺轩 · 24002120109 · 与 AI 的两轮提示词对话 + 真实截图</div>
+
+        <!-- 三任务跳转导航 · 杨祺轩 -->
+        <div class="yqx_nav">
+            <a href="yqx_task1.html" class="yqx_cur">任务一</a>
+            <a href="yqx_task2.html">任务二</a>
+            <a href="yqx_task3.html">任务三</a>
+        </div>
+
+        <!-- 任务一：两轮提示词对话 -->
+        <div class="yqx_card">
+            <h2>任务一 · 提示词工程师 ⭐⭐（需求：① 无缝循环 ② 3.2 秒自动翻页且手动后不停 ③ 圆点可点击 ④ 初始 cube）</h2>
+            <div class="yqx_chat">
+                <div class="yqx_round">—— 第 1 轮 ——</div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">帮我写一个 Swiper 11 的初始化配置：自动轮播、有循环、底部有圆点、效果用 cube，挂在 #wySw4 上。</div>
+                </div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">好的，配置如下，直接粘进页面即可：
+                        <div class="yqx_code">new Swiper('#wySw4', {
+  loop: true,
+  autoplay: true,
+  effect: 'cube',
+  pagination: '.swiper-pagination',
+});</div>
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot1.png" alt="真实对话截图①：第 1 轮提问与 AI 回答">
+                        <span class="yqx_shot_tag">真实对话截图 ①（Trae · GLM-5.3-Flash）</span>
+                    </div>
+                </div>
+                <div class="yqx_round">—— 亲自粘进页面验证 ——</div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">验证发现问题：自动翻页 ✅ 但 delay 是默认 3000 不是 3200 ❌；手动拖动后自动播放停了 ❌；圆点显示了但点击不能跳转 ❌。重新给，要求精确到参数名：autoplay 的 delay 必须是 3200 毫秒、disableOnInteraction 为 false（手动滑动后不停）；pagination 必须写成对象形式，el 指向 #wyPag4 且 clickable: true；初始效果 cube；loop: true。</div>
+                </div>
+                <div class="yqx_round">—— 第 2 轮 ——</div>
+                <div class="yqx_row yqx_ai">
+                    <div class="yqx_avatar">🤖</div>
+                    <div class="yqx_bubble">抱歉遗漏了细节，按你的参数要求修正如下：
+                        <div class="yqx_code">new Swiper('#wySw4', {
+  loop: true,
+  effect: 'cube',
+  autoplay: { delay: 3200, disableOnInteraction: false },
+  pagination: { el: '#wyPag4', clickable: true },
+});</div>
+                        说明：disableOnInteraction: false 保证用户拖动后自动播放继续；pagination 用对象写法才能携带 clickable 配置。
+                        <img class="yqx_shot" src="swiper-imgs/shot/yqx_shot2.png" alt="真实对话截图②：第 2 轮精确提问与 AI 修正回答">
+                        <span class="yqx_shot_tag">真实对话截图 ②（Trae · GLM-5.3-Flash）</span>
+                    </div>
+                </div>
+                <div class="yqx_row yqx_me">
+                    <div class="yqx_avatar">🧑</div>
+                    <div class="yqx_bubble">再次粘进页面验证：自动 3.2 秒翻 ✅、拖动松手后继续自动播 ✅、点圆点跳转 ✅、立方体效果 ✅——四项需求全部通过（截图见答辩）。</div>
+                </div>
+            </div>
+            <div class="yqx_note"><strong>答辩要点</strong>：第 1 轮提示词漏掉三个"隐形需求"（时长毫秒数、交互后不停止、圆点可点击），只说"自动轮播、有圆点"，AI 就给默认值；第 2 轮改成需求 1:1 对应参数名的写法，AI 没有自由发挥空间。AI 第一次错在 pagination 用旧版字符串写法、autoplay:true 是默认 3000ms。</div>
+        </div>
+
+        <p class="yqx_next"><a href="yqx_task2.html">任务二 · creative 电影墙 →</a></p>
+    </div>
+</body>
+</html>
